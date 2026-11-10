@@ -1,4 +1,4 @@
-"""Tìm trình duyệt có sẵn trên máy (Chrome / Edge / Brave) và mở bằng Playwright."""
+"""Tìm trình duyệt có sẵn trên máy (Chrome / Edge / Brave) và mở bằng Patchright."""
 import os
 import shutil
 import subprocess
@@ -34,7 +34,7 @@ def _candidates():
 
 
 def find_browser(custom_path: str = "") -> str | None:
-    """Trả về đường dẫn trình duyệt, hoặc None nếu không có (sẽ dùng Chromium của Playwright)."""
+    """Trả về đường dẫn trình duyệt, hoặc None nếu không có (sẽ dùng Chromium của Patchright)."""
     if custom_path and Path(custom_path).exists():
         return custom_path
     for p in _candidates():
@@ -43,13 +43,13 @@ def find_browser(custom_path: str = "") -> str | None:
     return None
 
 
-def ensure_playwright_chromium(log=print):
-    """Tải Chromium của Playwright (chỉ khi máy không có Chrome/Edge/Brave)."""
+def ensure_patchright_chromium(log=print):
+    """Tải Chromium của Patchright (chỉ khi máy không có Chrome/Edge/Brave)."""
     log("Không tìm thấy Chrome/Edge/Brave — đang tải Chromium (chỉ lần đầu, khoảng 150MB)...")
-    subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True)
+    subprocess.run([sys.executable, "-m", "patchright", "install", "chromium"], check=True)
 
 
-async def launch(playwright, settings, log=print):
+async def launch(patchright, settings, log=print):
     exe = find_browser(settings.get("browser_path", ""))
     kwargs = dict(
         user_data_dir=str(PROFILE_DIR),
@@ -59,9 +59,9 @@ async def launch(playwright, settings, log=print):
     )
     if exe:
         log(f"Dùng trình duyệt: {exe}")
-        return await playwright.chromium.launch_persistent_context(executable_path=exe, **kwargs)
+        return await patchright.chromium.launch_persistent_context(executable_path=exe, **kwargs)
     try:
-        return await playwright.chromium.launch_persistent_context(**kwargs)
+        return await patchright.chromium.launch_persistent_context(**kwargs)
     except Exception:
-        ensure_playwright_chromium(log)
-        return await playwright.chromium.launch_persistent_context(**kwargs)
+        ensure_patchright_chromium(log)
+        return await patchright.chromium.launch_persistent_context(**kwargs)

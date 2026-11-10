@@ -20,7 +20,6 @@ DEFAULT_SETTINGS = {
     "children": 0,
     "rooms": 1,
     "currency": "VND",
-    "google_fallback": True,   # OTA bị chặn/lỗi -> lấy giá OTA đó qua Google Hotels
     "auto_run": False,         # tự chạy mỗi ngày khi app đang mở
     "auto_run_time": "07:00",
 }

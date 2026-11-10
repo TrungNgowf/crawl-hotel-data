@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS fetches (
     hotel_id INTEGER,
     source TEXT,      -- OTA: agoda | booking | trip | google
     checkin TEXT,
-    status TEXT,      -- ok | soldout | blocked | error | google (đã lấy thay qua Google) | missing
+    status TEXT,      -- ok | soldout | blocked | error | notfound (Google không tìm ra khách sạn)
     n INTEGER,
     message TEXT
 );

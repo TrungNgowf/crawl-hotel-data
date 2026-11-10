@@ -9,7 +9,7 @@ Mỗi người tự cài và tự chạy trên máy mình. Dữ liệu lưu trê
 |---|---|---|
 | **Agoda** | Giá **từng loại phòng, từng gói**: bữa sáng, hủy miễn phí, chính sách hủy | Giá VND mỗi đêm, **chưa gồm thuế và phí** |
 | **Booking.com** | Từng loại phòng, nếu Booking cho xem | Booking hiện **bỏ ngày đặt phòng khỏi URL khi trình duyệt chạy tự động**, nên thường không có giá. Tool báo "đang chặn" và bỏ qua, không cố vượt qua |
-| **Google Hotels** | Giá thấp nhất của **từng nhà cung cấp** Google hiển thị: Booking.com, Agoda, Trip.com, Expedia, trang chính thức... | **Cách có giá Booking.com.** Giá gồm thuế & phí, mặc định 2 khách. Nên dùng link trang khách sạn (`google.com/travel/hotels/entity/...`); link tìm theo tên có thể ra nhầm khách sạn |
+| **Google Hotels** | Giá thấp nhất của **từng nhà cung cấp** Google hiển thị: Booking.com, Agoda, Trip.com, Expedia, trang chính thức... | **Nguồn tham khảo**: hiện ở cột/tab riêng “Google (tham khảo)”, không thay cho giá OTA bị chặn. Giá gồm thuế & phí, mặc định 2 khách. Chưa có link thì tool tự tìm theo tên khách sạn. Nên dùng link trang khách sạn (`google.com/travel/hotels/entity/...`); link tìm theo tên có thể ra nhầm khách sạn |
 | **Trip.com** | Chỉ giá "From" thấp nhất | Trip.com chặn API danh sách phòng với trình duyệt tự động. Giá "From" có thể **không đổi theo ngày** |
 
 Tool không vượt CAPTCHA hay cơ chế chống bot. Gặp trang chặn thì tool dừng OTA đó trong lượt chạy và ghi lại trong log.

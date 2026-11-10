@@ -43,11 +43,13 @@ Cài xong, trên **Desktop** có biểu tượng **Hotel Price Tool**.
 2. Mở trang khách sạn đối thủ trên Agoda / Booking.com / Trip.com / Google Hotels, **copy link** trên thanh địa chỉ, dán vào ô *"Dán link bất kỳ"* rồi nhấn **Enter**. Tool tự nhận OTA và điền đúng ô. Dán lần lượt các link của **cùng một khách sạn**.
 3. Bấm **Lưu**.
 
-> Mẹo: Booking.com thường chặn công cụ tự động. Tool sẽ tự lấy giá Booking qua Google Hotels. Nếu bảng **Nguồn dữ liệu** báo **🔍 Cần link Google**, hãy mở khách sạn trên [google.com/travel/hotels](https://www.google.com/travel/hotels), copy link và dán thêm vào ô *Google Hotels* (bấm ✏️ cạnh tên khách sạn).
+> **Google Hotels là nguồn tham khảo**: giá Google hiện ở cột riêng **Google (tham khảo)**, không thay cho giá OTA bị chặn hay lỗi. Không cần dán link Google — tool tự tìm theo tên khách sạn. Nếu bảng **Nguồn dữ liệu** báo **🔍 Cần dán link**, hãy mở khách sạn trên [google.com/travel/hotels](https://www.google.com/travel/hotels), copy link và dán vào ô *Google Hotels* (bấm **⋯** ở thẻ khách sạn → *Sửa tên và link*).
 
 ### Bước 2 — Bật/tắt
 - **Công tắc** cạnh tên khách sạn: bật/tắt lấy giá khách sạn đó.
 - **Các nút OTA** dưới tên (Agoda, Booking.com, …): bấm để bật/tắt từng OTA. Nút sáng = đang lấy, nút mờ = bỏ qua.
+- Ô **Google (tham khảo)**: bật/tắt lấy giá tham khảo Google Hotels cho khách sạn đó.
+- Nút **⋯**: sửa tên và link, hoặc xóa khách sạn.
 
 ### Bước 3 — Lấy giá
 1. Ở mục **Lấy giá**: chọn ngày nhận phòng (*từ … đến …*) hoặc bấm nhanh **7 / 14 / 30 ngày**.
@@ -56,8 +58,9 @@ Cài xong, trên **Desktop** có biểu tượng **Hotel Price Tool**.
    Mỗi trang mất khoảng 10–15 giây (tool cố ý chạy chậm để không bị chặn), ví dụ 3 khách sạn × 7 ngày ≈ 5–10 phút.
 
 ### Bước 4 — Xem kết quả
-- **Nguồn dữ liệu**: mỗi khách sạn × OTA lấy được trực tiếp (✅), qua Google (🔁), cần link Google (🔍) hay bị chặn (⛔).
-- **Giá theo OTA**: chọn khách sạn → bảng theo ngày, mỗi OTA có cột **sau thuế** (giá khách trả khi đặt) và **trước thuế** (giá OTA hiện ở trang danh sách). Ô **xanh** = OTA rẻ nhất ngày đó. Dấu **ᴳ** = giá lấy qua Google Hotels.
+- **Nguồn dữ liệu**: mỗi khách sạn × nguồn lấy được giá (✅), hết phòng (🈳), bị chặn (⛔) hay Google cần dán link (🔍).
+- **Giá theo OTA**: chọn khách sạn → bảng theo ngày, mỗi OTA có cột **sau thuế** (giá khách trả khi đặt) và **trước thuế** (giá OTA hiện ở trang danh sách). Ô **xanh** = OTA rẻ nhất ngày đó. Cột cuối **Google (tham khảo)** = giá thấp nhất Google Hotels hiển thị và nhà cung cấp bán giá đó; **▼** = Google thấy giá thấp hơn mọi OTA lấy trực tiếp.
+- **Google (tham khảo)**: giá từng nhà cung cấp theo Google Hotels (có khi bật nguồn Google).
 - **So sánh khách sạn**: giá rẻ nhất của từng khách sạn mỗi ngày, kèm OTA bán giá đó.
 - **Theo loại phòng**: giá từng loại phòng (khi lấy trực tiếp từ Agoda).
 - **Biểu đồ**, **Chi tiết** (mọi gói phòng); nút **Tải Excel / Tải CSV** ở cuối trang.
@@ -79,7 +82,7 @@ Mở **Tùy chọn khác** ở thanh bên trái → bật **Tự lấy giá hằ
 | Bấm đúp shortcut không thấy gì (macOS) | Chuột phải biểu tượng → **Open** → **Open**. Hoặc mở Terminal, chạy `~/.hotel-price-tool/launcher.sh` |
 | Trình duyệt không tự mở | Tự mở trình duyệt, vào địa chỉ `http://127.0.0.1:8765` |
 | Trang báo không kết nối được | Cửa sổ đen đã bị đóng → bấm đúp shortcut lại |
-| Một OTA báo ⛔ bị chặn | Bình thường với Booking.com; tool lấy qua Google. Có thể thử lại sau vài giờ, hoặc tăng **Nghỉ giữa 2 trang** trong *Tùy chọn khác* |
+| Một OTA báo ⛔ bị chặn | Bình thường với Booking.com; xem giá Booking ở tab **Google (tham khảo)**. Có thể thử lại sau vài giờ, hoặc tăng **Nghỉ giữa 2 trang** trong *Tùy chọn khác* |
 | Muốn cài lại từ đầu | Chạy lại lệnh cài ở mục 2 (dữ liệu cũ vẫn giữ) |
 
 **Gỡ cài đặt:** xóa thư mục `.hotel-price-tool` trong thư mục người dùng (macOS: `~/.hotel-price-tool`, Windows: `C:\Users\<tên>\.hotel-price-tool`) và biểu tượng trên Desktop.
